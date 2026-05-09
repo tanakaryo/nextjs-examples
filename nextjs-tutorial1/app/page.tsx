@@ -1,3 +1,9 @@
+import Main from "@/app/components/main";
+import Header from "@/app/components/headers";
+import Footer from "@/app/components/footer";
+import NavigationBar from "@/app/components/navbar";
+import Link from "next/link";
+
 type Post = {
   id: number;
   title: string;
@@ -9,14 +15,13 @@ export default async function Home() {
   const posts: Post[] = await res.json();
 
   return (
-    <div>
-      <h1>Posting List</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+     <NavigationBar />
+     <Header />
+     <Main />
+     <Footer />
+     <Link href="/info">go to info.</Link>
+    </>
   );
 }
 
